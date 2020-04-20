@@ -2,10 +2,12 @@
   <v-container>
     <div v-for="(product) in userProduct" :key="product.ProductID">
       <v-card>
-        <v-card-title>
+        <v-card-title class="caption">
           {{product.ProductName}}
           <v-spacer></v-spacer>
-          {{product.UseCount}}/{{product.ProductCount}}次
+          日下载{{product.DailyUseCount}}/{{product.ProductDailyCount |count}}次
+          <br />
+          总下载{{product.TotalUseCount}}/{{product.ProductCount |count}}次数
         </v-card-title>
         <v-card-text>
           <v-chip
@@ -31,6 +33,14 @@ export default {
       userProduct: [],
       sites: []
     };
+  },
+  filters: {
+    count: function(value) {
+      if (value == 0) {
+        return "无限制";
+      }
+      return value;
+    }
   },
   methods: {
     open(url) {

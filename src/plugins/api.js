@@ -4,7 +4,7 @@ import qs from 'qs'
 
 
 export default {
-    base_url: "http://127.0.0.1:9090/xg",
+    base_url: "http://47.98.148.191:9090/xg",
     get(url, {
         params,
         token,

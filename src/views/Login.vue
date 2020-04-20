@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-parallax height="800" src="@/assets/login.jpeg">
+    <v-parallax height="1000" src="@/assets/login.jpeg">
       <v-container fill-height class="flex justify-center">
         <v-card width="400" class="pa-5" color="rgba(10, 10, 10, 0.3)">
           <v-row justify="center">

@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <router-view />
+
     <v-divider></v-divider>
+
     <v-footer padless>
       <v-card class="flex" flat tile right>
         <v-card-title>

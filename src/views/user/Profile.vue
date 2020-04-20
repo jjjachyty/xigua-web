@@ -51,34 +51,11 @@ export default {
   },
   components: { Product, UseLog, Download, ModifyPasswd },
   methods: {
-    count() {
-      fetch(api.base_url + "/plt/websiteCount", {
-        method: "post",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        withCredentials: true,
-        body: qs.stringify({
-          userId: 100
-        })
-      })
-        .then(res => {
-          console.log(res.headers);
-          return res.json();
-        })
-        .then(res => {
-          console.log(res);
-        });
-    },
-
     loginout() {
       this.$store.dispatch("loginout");
       this.$router.replace("/");
     }
   },
-  created() {
-    this.count();
-  }
+  created() {}
 };
 </script>

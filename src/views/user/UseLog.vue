@@ -3,11 +3,11 @@
     <v-data-table
       :headers="headers"
       :items="pageData.Rows"
-      :page.sync="pageData.Page.CurrentPage"
-      :items-per-page="pageData.PageCount"
+      :page.sync="currentPage"
+      :items-per-page="pageData.Page.PageSize"
       hide-default-footer
       class="elevation-1"
-      @page-count="pageCount = $event"
+      no-data-text="没有了"
     ></v-data-table>
     <div class="text-center pt-2">
       <v-pagination v-model="currentPage" :length="pageData.Page.PageCount"></v-pagination>
@@ -23,7 +23,6 @@ export default {
     return {
       pageData: {},
       currentPage: 1,
-      // pageCount: 0,
       // itemsPerPage: 10,
       headers: [
         // {
@@ -43,6 +42,7 @@ export default {
     getLogs() {
       api
         .get("/downloadlog/page", {
+          params: { order: "create_at", sort: "desc", page: this.currentPage },
           token: this.$store.state.token,
           router: this.$router
         })
@@ -56,6 +56,12 @@ export default {
   },
   mounted() {
     this.getLogs();
+  },
+  watch: {
+    currentPage: function(currentPage) {
+      console.log(currentPage);
+      this.getLogs();
+    }
   }
 };
 </script>
