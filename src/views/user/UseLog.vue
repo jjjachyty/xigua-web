@@ -9,9 +9,7 @@
       class="elevation-1"
       no-data-text="没有了"
     ></v-data-table>
-    <div class="text-center pt-2">
-      <v-pagination v-model="currentPage" :length="pageData.Page.PageCount"></v-pagination>
-    </div>
+    <v-pagination v-model="currentPage" :length="pageData.Page.PageCount"></v-pagination>
   </v-container>
 </template>
 
@@ -38,10 +36,11 @@ export default {
       ]
     };
   },
-  filters:{
-    formatDate:function(val){
-      return moment(val).format("YYYY/MM/DD ")
-    }},
+  filters: {
+    formatDate: function(val) {
+      return moment(val).format("YYYY/MM/DD ");
+    }
+  },
   methods: {
     getLogs() {
       api

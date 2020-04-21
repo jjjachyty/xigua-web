@@ -13,13 +13,18 @@ export default new Vuex.Store({
             tree
         }) {
             state.token = ""
-
+            window.localStorage.removeItem("token")
         },
         ["LOGIN_IN"](state,
             token
         ) {
             state.token = token
             state.user = api.getUser(token)
+
+            window.localStorage.setItem("token", token)
+                // console.log("111", window.localStorage.getItem("token"))
+
+
 
         },
     },

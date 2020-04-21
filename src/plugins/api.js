@@ -67,7 +67,6 @@ export default {
     },
     getUser(token) {
         var decoded = jwtDecode(token);
-        console.log(decoded);
         return decoded;
     }
 }

@@ -54,8 +54,9 @@ const router = new VueRouter({
 })
 router.beforeEach((to, from, next) => {
     if (to.meta.requireAuth) {
-        if (store.state.token) {
-            var user = api.getUser(store.state.token)
+        var token = window.localStorage.getItem("token")
+        if (token) {
+            var user = api.getUser(token)
             if (to.path == "/admin" && user.Role != 1) {
                 console.log("12121")
                 next({
