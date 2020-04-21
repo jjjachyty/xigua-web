@@ -13,7 +13,7 @@
           </v-row>
           <v-row justify="center">
             <v-col sm="12">
-              <v-text-field solo label="账号" prepend-inner-icon="fas fa-user" v-model="username"></v-text-field>
+              <v-text-field solo label="账号" prepend-inner-icon="fas fa-user" v-model="username" type="number"></v-text-field>
             </v-col>
           </v-row>
           <v-row justify="center">
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       error: null,
-      username: "",
+      username: null,
       password: ""
     };
   },
@@ -63,7 +63,7 @@ export default {
         },
         withCredentials: true,
         body: JSON.stringify({
-          UserName: this.username,
+          ID: Number(this.username),
           Password: this.password
         })
       })

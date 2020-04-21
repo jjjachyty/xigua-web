@@ -1,6 +1,8 @@
 // export const base_url = "http://127.0.0.1:9090/xg"; //"http://47.98.148.191";
 
 import qs from 'qs'
+import jwtDecode from 'jwt-decode'
+
 
 
 export default {
@@ -64,10 +66,8 @@ export default {
 
     },
     getUser(token) {
-        let userString = decodeURIComponent(
-            escape(window.atob(token.split(".")[1]))
-        );
-        console.log(JSON.parse(userString));
-        return JSON.parse(userString);
+        var decoded = jwtDecode(token);
+        console.log(decoded);
+        return decoded;
     }
 }
