@@ -14,6 +14,7 @@
     </v-app-bar>
     <Download></Download>
     <v-tabs centered v-show="!modifypasswd" primary>
+      <v-tab href="#tab-4">使用声明</v-tab>
       <v-tab href="#tab-1">我的套餐</v-tab>
       <v-tab href="#tab-2">使用记录</v-tab>
       <v-tab href="#tab-3">修改密码</v-tab>
@@ -25,6 +26,9 @@
       </v-tab-item>
       <v-tab-item value="tab-3">
         <ModifyPasswd></ModifyPasswd>
+      </v-tab-item>
+       <v-tab-item value="tab-4">
+        <Statement></Statement>
       </v-tab-item>
     </v-tabs>
     <v-divider></v-divider>
@@ -38,7 +42,7 @@ import Product from "./Product";
 import UseLog from "./UseLog";
 import Download from "./Download";
 import ModifyPasswd from "./ModifyPasswd";
-
+import Statement from "./Statement";
 export default {
   data() {
     return {
@@ -49,7 +53,7 @@ export default {
       modifypasswd: false
     };
   },
-  components: { Product, UseLog, Download, ModifyPasswd },
+  components: { Product, UseLog, Download, ModifyPasswd,Statement },
   methods: {
     loginout() {
       this.$store.dispatch("loginout");

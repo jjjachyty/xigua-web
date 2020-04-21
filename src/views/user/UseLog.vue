@@ -25,12 +25,12 @@ export default {
       currentPage: 1,
       // itemsPerPage: 10,
       headers: [
-        // {
-        //   text: "站点",
-        //   align: "start",
-        //   sortable: false,
-        //   value: "Site"
-        // },
+        {
+          text: "站点",
+          align: "start",
+          sortable: false,
+          value: "Site"
+        },
         { text: "IP", value: "IP" },
         { text: "URL", value: "URL" },
         { text: "扣减", value: "Sub" },
@@ -38,6 +38,10 @@ export default {
       ]
     };
   },
+  filters:{
+    formatDate:function(val){
+      return moment(val).format("YYYY/MM/DD ")
+    }},
   methods: {
     getLogs() {
       api
