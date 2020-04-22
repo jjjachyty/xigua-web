@@ -91,7 +91,7 @@
               <template v-slot:activator="{ on }">
                 <v-text-field
                   v-model="enddate"
-                  label="开始时间"
+                  label="结束时间"
                   prepend-icon="fas fa-calendar-day"
                   readonly
                   v-on="on"
