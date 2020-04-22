@@ -30,9 +30,25 @@
               type="password"
               v-model="password"
             ></v-text-field>
-            <v-alert type="error" v-show="error">{{error}}</v-alert>
           </v-col>
         </v-row>
+        <v-row>
+          <v-col xs="12" sm="6">
+            <v-text-field
+              solo
+              label="验证码"
+              prepend-inner-icon="fas fa-sms"
+              type="number"
+              counter="6"
+              v-model="code"
+            ></v-text-field>
+          </v-col>
+          <v-col xs="12" sm="6">
+            <v-img :src="img" @click="caption"></v-img>
+          </v-col>
+        </v-row>
+        <v-alert type="error" v-show="error">{{error}}</v-alert>
+
         <v-row justify="center">
           <v-col sm="12" md="12" xs="12s">
             <v-btn color="primary" class="white--text" @click="login" block>
@@ -77,19 +93,32 @@ export default {
     return {
       error: null,
       username: null,
-      password: ""
+      password: "",
+      id: "",
+      img: "",
+      code: null
     };
   },
   methods: {
+    caption() {
+      api.get("/com/caption", {}).then(res => {
+        if (res.Status) {
+          this.id = res.Data.id;
+          this.img = res.Data.img;
+        }
+      });
+    },
     login() {
       fetch(api.base_url + "/user/login", {
         method: "post",
         mode: "cors",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         },
         withCredentials: true,
-        body: JSON.stringify({
+        body: qs.stringify({
+          Code: this.code,
+          CodeID: this.id,
           ID: Number(this.username),
           Password: this.password
         })
@@ -110,9 +139,14 @@ export default {
             }
           } else {
             this.error = res.Message;
+            this.caption();
+            this.code = "";
           }
         });
     }
+  },
+  created() {
+    this.caption();
   }
 };
 </script>
