@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height fluid class="justify-center">
+  <v-container fill-height fluid class="justify-center" data-app="true">
     <v-row justify="center">
       <v-col sm="12">
         <v-text-field
@@ -31,9 +31,9 @@
       </v-col>
 
       <v-dialog v-model="loading" persistent width="300">
-        <v-card color="primary" dark>
-          <v-card-text>
-            请稍等....
+        <v-card color="primary" dark  class="text-center">
+          <v-card-text >
+            <p>....请稍等....</p>
             <v-progress-linear indeterminate color="white" class="mb-0"></v-progress-linear>
           </v-card-text>
         </v-card>
@@ -70,7 +70,7 @@ export default {
           router: this.$router
         })
         .then(res => {
-          this.loading = false;
+           this.loading = false;
           if (res.Status) {
             this.urls = res.Data;
             this.errorMsg = null;
