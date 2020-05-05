@@ -81,7 +81,7 @@
 #app {
   height: 100%;
   width: 100%;
-  background-image: url("https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=30");
+  background-image: url("https://picsum.photos/1920/1080?random");
 }
 </style>
 
