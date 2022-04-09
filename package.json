@@ -10,7 +10,7 @@
         "@fortawesome/fontawesome-free": "^5.8.2",
         "core-js": "^3.6.4",
         "jwt-decode": "^2.2.0",
-        "moment": "^2.24.0",
+        "moment": "^2.29.2",
         "qs": "^6.9.3",
         "roboto-fontface": "*",
         "vue": "^2.6.11",
