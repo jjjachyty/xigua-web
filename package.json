@@ -20,7 +20,7 @@
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^4.3.0",
-        "@vue/cli-service": "^4.3.0",
+        "@vue/cli-service": "^5.0.8",
         "http-proxy-middleware": "^1.0.3",
         "sass": "^1.19.0",
         "sass-loader": "^8.0.0",
